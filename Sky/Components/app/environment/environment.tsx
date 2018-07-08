@@ -22,7 +22,7 @@ const fetchQuery = (operation: { text: string }, variables: any) =>
     .then((json) => {
       // https://github.com/facebook/relay/issues/1816
       if (json.errors) {
-        return Promise.reject(json.errors);
+        return Promise.reject(json.errors[0]);
       }
 
       return Promise.resolve(json);

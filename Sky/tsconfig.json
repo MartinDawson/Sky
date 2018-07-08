@@ -4,7 +4,7 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "es2015",
-    "target": "es6",
+    "target": "es2015",
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

@@ -25,6 +25,9 @@ using Sky.Data;
 using Sky.Components.GraphQl;
 using DotNetEnv;
 using Sky.Repository;
+using Sky.Components.graphQl;
+using Sky.Components.reward;
+using Sky.Components.customer;
 
 namespace Sky
 {
@@ -148,14 +151,15 @@ namespace Sky
                 });
             });
 
-            builder.RegisterAssemblyTypes(assembly).AsClosedTypesOf(typeof(NodeGraphType<>));
             builder.RegisterAssemblyTypes(assembly).AsClosedTypesOf(typeof(ObjectGraphType<>));
             builder.RegisterAssemblyTypes(assembly).AsClosedTypesOf(typeof(InterfaceGraphType<>));
             builder.RegisterAssemblyTypes(assembly).AsClosedTypesOf(typeof(MutationPayloadGraphType<,>));
             builder.RegisterAssemblyTypes(assembly).Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces();
 
             builder.RegisterType<AppQuery>();
-            builder.RegisterType<AppMutation>();
+
+            builder.RegisterType<Repository<Reward, ApplicationDbContext>>().As<IRepository<Reward>>();
+            builder.RegisterType<Repository<Customer, ApplicationDbContext>>().As<IRepository<Customer>>();
 
             return builder;
         }

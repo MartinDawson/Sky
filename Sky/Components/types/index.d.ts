@@ -1,5 +1,11 @@
+import { InjectedFormProps } from 'redux-form';
+
 export interface UrlParameter {
   [key: string]: string | number
+}
+
+export interface FormState {
+  rewards: InjectedFormProps
 }
 
 export interface Route {
@@ -7,17 +13,10 @@ export interface Route {
     push: (pathname: string) => void
   }
   error: {
-    _error: string[]
+    code: string
+    message: string
   }
-  props?: {
-    [key: string]: any
-    params: UrlParameter
-    location: {
-      state: {
-        [key: string]: any
-      }
-    }
-  }
+  props?: any
 }
 
 export interface Match {

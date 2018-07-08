@@ -1,4 +1,5 @@
 {
+  "passPerPreset": true,
   "presets": [
     "env",
     "stage-2",
@@ -6,6 +7,6 @@
   ],
   "plugins": [
     ["relay", { "artifactDirectory": "./Components/__generated__" }],
-    "babel-plugin-transform-es2015-modules-commonjs"
+    "transform-runtime"
   ]
 }

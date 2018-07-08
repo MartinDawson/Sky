@@ -11,10 +11,8 @@ namespace Sky.Components.GraphQl
         public AppSchema(Func<Type, IGraphType> resolveType) : base(resolveType)
         {
             var query = (AppQuery)resolveType(typeof(AppQuery));
-            var mutation = (AppMutation)resolveType(typeof(AppMutation));
 
             Query = query;
-            Mutation = mutation;
         }
     }
 }
